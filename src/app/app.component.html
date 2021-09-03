@@ -1,0 +1,83 @@
+<div class="container">
+  <h2 class="text-center"> Grocery list manager </h2>
+
+  <div class="row">
+      <div class="offset-3 col-sm-6">
+          <div class="">
+            <div class="form-group">
+             Name: <input type="text" class="form-control" placeholder="enter grocery items" [(ngModel)]="name" />
+            </div>
+            <div class="form-group">
+             Cost: <input type="text" class="form-control" placeholder="enter grocery items" [(ngModel)]="cost" />
+             </div>
+             <div class="form-group">
+              Group: <select  class="form-control"  [(ngModel)]="group" >
+                <option value="In">In</option>
+                <option value="Out">Out</option>
+                </select>
+              </div>
+              <div class="input-group-btn text-center">
+                  <button class="btn btn-primary" type="button" (click)="onClick()">
+      Enter
+      </button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <br />
+
+<div >
+ <div class="row text-center">
+   <div class="col-sm-6">
+    <table  class="table border table-info table-striped">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Name</th>
+          <th>Cost</th>
+          <th>Group</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of in ; let j = index" >
+          <td>{{j+1}}</td>
+          <td>{{i.name}}</td>
+          <td>Rs {{i.cost}}</td>
+          <td>{{i.group}}</td>
+          <td><button id="remove" class="btn btn-danger" (click)="deleteFieldValue1(j)">DELETE ROW</button></td>
+        </tr>
+       
+      </tbody>
+    </table>
+   </div>
+   <div class="col-sm-6">
+    <table  class="table border table-success table-striped">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Name</th>
+          <th>Cost</th>
+          <th>Group</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+       <tr *ngFor="let o of out ; let j = index">
+        <td>{{j+1}}</td>
+          <td>{{o.name}}</td>
+          <td>Rs {{o.cost}}</td>
+          <td>{{o.group}}</td>
+          <td><button id="remove" class="btn btn-danger" (click)="deleteFieldValue(j)">DELETE ROW</button></td>
+        </tr>
+       
+      </tbody>
+    </table>
+   </div>
+ </div>
+
+</div>
+  
+</div>
+<router-outlet></router-outlet>
